@@ -85,7 +85,7 @@ export default function TechniquesPage() {
       title: "Basic Slides",
       description: "Master Neon's slide ability for speed and positioning advantages.",
       difficulty: "Beginner",
-      duration: "30 sec",
+      duration: "15 sec",
       comingSoon: false, // OPEN
       icon: Rocket,
       gradient: "from-green-400 to-emerald-500",
@@ -95,7 +95,7 @@ export default function TechniquesPage() {
       title: "Sprint Management",
       description: "Efficiently manage Neon's sprint energy for maximum mobility.",
       difficulty: "Beginner",
-      duration: "7 min",
+      duration: "30 sec",
       comingSoon: false, // OPEN
       icon: Zap,
       gradient: "from-blue-400 to-cyan-500",
