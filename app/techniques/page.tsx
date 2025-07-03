@@ -117,7 +117,7 @@ export default function TechniquesPage() {
       title: "Ability Usage + Comms",
       description: "Master slide timing, positioning, and combat applications.",
       difficulty: "Advanced",
-      duration: "12 min",
+      duration: "30 sec",
       comingSoon: false, // OPEN
       icon: Flame,
       gradient: "from-orange-400 to-red-500",
