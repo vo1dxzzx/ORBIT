@@ -70,7 +70,7 @@ export default function TechniquesPage() {
 
   const beginnerTechniques = [
     {
-      title: "Basic Slide Movement",
+      title: "Basic Slides",
       description: "Master Neon's slide ability for speed and positioning advantages.",
       difficulty: "Beginner",
       duration: "5 min",
