@@ -85,7 +85,7 @@ export default function TechniquesPage() {
       title: "Basic Slides",
       description: "Master Neon's slide ability for speed and positioning advantages.",
       difficulty: "Beginner",
-      duration: "5 min",
+      duration: "30 sec",
       comingSoon: false, // OPEN
       icon: Rocket,
       gradient: "from-green-400 to-emerald-500",
