@@ -119,7 +119,7 @@ export default function TechniquesPage() {
       comingSoon: false, // OPEN
       icon: TrendingUp,
       gradient: "from-yellow-400 to-orange-500",
-      youtubeUrl: "", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=OVT4NFeZULY", // You can paste YouTube URL here
     },
     {
       title: "Combo Techniques",
@@ -141,7 +141,7 @@ export default function TechniquesPage() {
       comingSoon: false, // OPEN
       icon: Trophy,
       gradient: "from-red-400 to-pink-500",
-      youtubeUrl: "", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=U26vJSmejJA", // You can paste YouTube URL here
     },
     {
       title: "Map Control Mastery",
