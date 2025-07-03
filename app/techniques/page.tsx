@@ -87,7 +87,7 @@ export default function TechniquesPage() {
       comingSoon: false, // OPEN
       icon: Zap,
       gradient: "from-blue-400 to-cyan-500",
-      youtubeUrl: "", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=UX-9K4l2TsU", // You can paste YouTube URL here
     },
     {
       title: "Wall Positioning",
@@ -102,7 +102,7 @@ export default function TechniquesPage() {
 
   const advancedTechniques = [
     {
-      title: "Advanced Slide Positioning",
+      title: "Ability Usage + Comms",
       description: "Master slide timing, positioning, and combat applications.",
       difficulty: "Advanced",
       duration: "12 min",
