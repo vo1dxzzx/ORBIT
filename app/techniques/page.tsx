@@ -74,18 +74,29 @@ export default function TechniquesPage() {
       description: "Master Neon's slide ability for speed and positioning advantages.",
       difficulty: "Beginner",
       duration: "5 min",
-      comingSoon: true,
+      comingSoon: false, // OPEN
       icon: Rocket,
       gradient: "from-green-400 to-emerald-500",
+      youtubeUrl: "", // You can paste YouTube URL here
     },
     {
       title: "Sprint Management",
       description: "Efficiently manage Neon's sprint energy for maximum mobility.",
       difficulty: "Beginner",
       duration: "7 min",
-      comingSoon: true,
+      comingSoon: false, // OPEN
       icon: Zap,
       gradient: "from-blue-400 to-cyan-500",
+      youtubeUrl: "", // You can paste YouTube URL here
+    },
+    {
+      title: "Wall Positioning",
+      description: "Learn optimal wall placement and timing for maximum effectiveness.",
+      difficulty: "Beginner",
+      duration: "6 min",
+      comingSoon: true, // COMING SOON
+      icon: Shield,
+      gradient: "from-purple-400 to-pink-500",
     },
   ]
 
@@ -95,18 +106,29 @@ export default function TechniquesPage() {
       description: "Master slide timing, positioning, and combat applications.",
       difficulty: "Advanced",
       duration: "12 min",
-      comingSoon: true,
+      comingSoon: false, // OPEN
       icon: Flame,
       gradient: "from-orange-400 to-red-500",
+      youtubeUrl: "", // You can paste YouTube URL here
     },
     {
       title: "Energy Optimization",
       description: "Advanced energy management for maximum map presence.",
       difficulty: "Advanced",
       duration: "10 min",
-      comingSoon: true,
+      comingSoon: false, // OPEN
       icon: TrendingUp,
       gradient: "from-yellow-400 to-orange-500",
+      youtubeUrl: "", // You can paste YouTube URL here
+    },
+    {
+      title: "Combo Techniques",
+      description: "Chain abilities together for devastating movement combinations.",
+      difficulty: "Advanced",
+      duration: "15 min",
+      comingSoon: true, // COMING SOON
+      icon: Crosshair,
+      gradient: "from-cyan-400 to-blue-500",
     },
   ]
 
@@ -116,9 +138,28 @@ export default function TechniquesPage() {
       description: "Seamlessly integrate movement with precise aim and shooting.",
       difficulty: "Pro",
       duration: "20 min",
-      comingSoon: true,
+      comingSoon: false, // OPEN
       icon: Trophy,
       gradient: "from-red-400 to-pink-500",
+      youtubeUrl: "", // You can paste YouTube URL here
+    },
+    {
+      title: "Map Control Mastery",
+      description: "Professional-level map control and positioning strategies.",
+      difficulty: "Pro",
+      duration: "25 min",
+      comingSoon: true, // COMING SOON
+      icon: Target,
+      gradient: "from-purple-500 to-indigo-500",
+    },
+    {
+      title: "Tournament Tactics",
+      description: "High-level competitive strategies used in professional play.",
+      difficulty: "Pro",
+      duration: "30 min",
+      comingSoon: true, // COMING SOON
+      icon: Award,
+      gradient: "from-gold-400 to-yellow-500",
     },
   ]
 
@@ -196,17 +237,31 @@ export default function TechniquesPage() {
         
         <CardContent className="relative">
           <div className="aspect-video rounded-xl overflow-hidden bg-slate-900/50 relative flex items-center justify-center w-full border border-slate-700/50 group-hover:border-cyan-400/30 transition-all duration-300">
-            <div className="text-center space-y-4">
-              <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-20 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
-                <Clock className="w-10 h-10 text-cyan-400 drop-shadow-lg" />
+            {technique.comingSoon ? (
+              <div className="text-center space-y-4">
+                <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-20 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
+                  <Clock className="w-10 h-10 text-cyan-400 drop-shadow-lg" />
+                </div>
+                <div>
+                  <p className="text-cyan-400 font-semibold text-lg">Coming Soon</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"} mt-1`}>
+                    Video tutorial in production
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-cyan-400 font-semibold text-lg">Coming Soon</p>
-                <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"} mt-1`}>
-                  Video tutorial in production
-                </p>
+            ) : (
+              <div className="text-center space-y-4">
+                <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-30 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
+                  <PlayCircle className="w-10 h-10 text-white drop-shadow-lg" />
+                </div>
+                <div>
+                  <p className="text-green-400 font-semibold text-lg">Ready for Video</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"} mt-1`}>
+                    Paste YouTube URL in code
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
             
             {/* Animated background elements */}
             <div className="absolute inset-0 opacity-30">
@@ -357,8 +412,8 @@ export default function TechniquesPage() {
               {/* Stats Section */}
               <div className="grid grid-cols-3 gap-8 mt-8">
                 {[
-                  { label: "Techniques", value: "5", icon: Target },
-                  { label: "Total Duration", value: "54m", icon: Clock },
+                  { label: "Techniques", value: "9", icon: Target },
+                  { label: "Available Now", value: "5", icon: Unlock },
                   { label: "Skill Levels", value: "3", icon: TrendingUp },
                 ].map((stat, index) => (
                   <div key={index} className="text-center group">
@@ -406,7 +461,7 @@ export default function TechniquesPage() {
                     Perfect for players new to Neon or looking to solidify their foundation.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 w-full">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {beginnerTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -426,7 +481,7 @@ export default function TechniquesPage() {
                     Take your skills to the next level with complex movement patterns.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 w-full">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {advancedTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -446,7 +501,7 @@ export default function TechniquesPage() {
                     Perfect your technique with tournament-level strategies and mechanics.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1 w-full max-w-2xl mx-auto">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {proTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
