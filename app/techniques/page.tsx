@@ -62,6 +62,18 @@ export default function TechniquesPage() {
     setIsDarkMode(!isDarkMode)
   }
 
+  // Function to extract YouTube video ID from URL
+  const getYouTubeVideoId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+    const match = url.match(regExp)
+    return (match && match[2].length === 11) ? match[2] : null
+  }
+
+  // Function to get YouTube thumbnail URL
+  const getYouTubeThumbnail = (videoId: string) => {
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+  }
+
   const themeClasses = isDarkMode ? "bg-slate-950 text-white" : "bg-gray-50 text-gray-900"
   const cardClasses = isDarkMode
     ? "bg-slate-800/60 border-slate-700/50 hover:border-cyan-400/60 backdrop-blur-sm"
@@ -159,7 +171,7 @@ export default function TechniquesPage() {
       duration: "30 min",
       comingSoon: true, // COMING SOON
       icon: Award,
-      gradient: "from-gold-400 to-yellow-500",
+      gradient: "from-yellow-400 to-orange-500",
     },
   ]
 
@@ -192,6 +204,14 @@ export default function TechniquesPage() {
   const TechniqueCard = ({ technique, index }: { technique: any; index: number }) => {
     const DifficultyIcon = getDifficultyIcon(technique.difficulty)
     const TechIcon = technique.icon
+    const videoId = technique.youtubeUrl ? getYouTubeVideoId(technique.youtubeUrl) : null
+    const thumbnailUrl = videoId ? getYouTubeThumbnail(videoId) : null
+
+    const handleVideoClick = () => {
+      if (technique.youtubeUrl) {
+        window.open(technique.youtubeUrl, '_blank')
+      }
+    }
 
     return (
       <Card
@@ -249,7 +269,47 @@ export default function TechniquesPage() {
                   </p>
                 </div>
               </div>
+            ) : thumbnailUrl ? (
+              // YouTube Video Thumbnail with Play Button
+              <div 
+                className="relative w-full h-full cursor-pointer group/video"
+                onClick={handleVideoClick}
+              >
+                <img 
+                  src={thumbnailUrl} 
+                  alt={technique.title}
+                  className="w-full h-full object-cover rounded-lg"
+                  onError={(e) => {
+                    // Fallback to hqdefault if maxresdefault fails
+                    e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                  }}
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/30 group-hover/video:bg-black/20 transition-all duration-300 rounded-lg" />
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-all duration-300 shadow-lg">
+                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                  </div>
+                </div>
+                
+                {/* YouTube Logo */}
+                <div className="absolute bottom-3 right-3">
+                  <div className="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+                    YouTube
+                  </div>
+                </div>
+                
+                {/* Duration Badge */}
+                <div className="absolute top-3 right-3">
+                  <div className="bg-black/80 text-white px-2 py-1 rounded text-xs font-medium">
+                    {technique.duration}
+                  </div>
+                </div>
+              </div>
             ) : (
+              // Fallback for videos without valid YouTube URLs
               <div className="text-center space-y-4">
                 <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-30 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
                   <PlayCircle className="w-10 h-10 text-white drop-shadow-lg" />
@@ -263,13 +323,15 @@ export default function TechniquesPage() {
               </div>
             )}
             
-            {/* Animated background elements */}
-            <div className="absolute inset-0 opacity-30">
-              <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
-              <div className="absolute top-8 right-6 w-1 h-1 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
-              <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
-              <div className="absolute bottom-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
-            </div>
+            {/* Animated background elements - only show for coming soon */}
+            {technique.comingSoon && (
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
+                <div className="absolute top-8 right-6 w-1 h-1 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+                <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
+              </div>
+            )}
           </div>
           
           <div className="mt-6 flex items-center justify-between">
@@ -277,6 +339,7 @@ export default function TechniquesPage() {
               variant="outline"
               size="sm"
               disabled={technique.comingSoon}
+              onClick={technique.comingSoon ? undefined : handleVideoClick}
               className="border-cyan-400/60 text-cyan-400 hover:bg-cyan-400/15 bg-transparent hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed px-6"
             >
               <PlayCircle className="w-4 h-4 mr-2" />
@@ -285,7 +348,7 @@ export default function TechniquesPage() {
             
             <div className="flex items-center gap-2 text-xs text-slate-400">
               <Users className="w-3 h-3" />
-              <span>0 views</span>
+              <span>{technique.comingSoon ? "0 views" : "Available"}</span>
             </div>
           </div>
         </CardContent>
