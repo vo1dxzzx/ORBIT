@@ -109,7 +109,7 @@ export default function TechniquesPage() {
       comingSoon: false, // OPEN
       icon: Flame,
       gradient: "from-orange-400 to-red-500",
-      youtubeUrl: "", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=5VEc9xuq44Y", // You can paste YouTube URL here
     },
     {
       title: "Using Boxes and Ropes",
