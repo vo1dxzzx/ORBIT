@@ -127,7 +127,7 @@ export default function TechniquesPage() {
       title: "Using Boxes and Ropes",
       description: "Advanced movement using boxes and ropes for maximum map presence.",
       difficulty: "Advanced",
-      duration: "10 min",
+      duration: "30 sec",
       comingSoon: false, // OPEN
       icon: TrendingUp,
       gradient: "from-yellow-400 to-orange-500",
