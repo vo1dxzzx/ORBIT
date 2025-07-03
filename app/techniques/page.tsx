@@ -149,7 +149,7 @@ export default function TechniquesPage() {
       title: "Movement-Aim Integration",
       description: "Seamlessly integrate movement with precise aim and shooting.",
       difficulty: "Pro",
-      duration: "20 min",
+      duration: "20 sec",
       comingSoon: false, // OPEN
       icon: Trophy,
       gradient: "from-red-400 to-pink-500",
