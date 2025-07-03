@@ -112,8 +112,8 @@ export default function TechniquesPage() {
       youtubeUrl: "", // You can paste YouTube URL here
     },
     {
-      title: "Energy Optimization",
-      description: "Advanced energy management for maximum map presence.",
+      title: "Using Boxes and Ropes",
+      description: "Advanced movement using boxes and ropes for maximum map presence.",
       difficulty: "Advanced",
       duration: "10 min",
       comingSoon: false, // OPEN
