@@ -28,6 +28,8 @@ import {
   PlayCircle,
   Lock,
   Unlock,
+  Shield,
+  Crosshair,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -85,15 +87,6 @@ export default function TechniquesPage() {
       icon: Zap,
       gradient: "from-blue-400 to-cyan-500",
     },
-    {
-      title: "Relay Bolt Basics",
-      description: "Use Relay Bolt effectively for area denial and enemy control.",
-      difficulty: "Beginner",
-      duration: "6 min",
-      comingSoon: true,
-      icon: Target,
-      gradient: "from-purple-400 to-pink-500",
-    },
   ]
 
   const advancedTechniques = [
@@ -115,15 +108,6 @@ export default function TechniquesPage() {
       icon: TrendingUp,
       gradient: "from-yellow-400 to-orange-500",
     },
-    {
-      title: "Relay Bolt Mastery",
-      description: "Advanced Relay Bolt techniques for maximum impact.",
-      difficulty: "Advanced",
-      duration: "15 min",
-      comingSoon: true,
-      icon: Sparkles,
-      gradient: "from-indigo-400 to-purple-500",
-    },
   ]
 
   const proTechniques = [
@@ -135,24 +119,6 @@ export default function TechniquesPage() {
       comingSoon: true,
       icon: Trophy,
       gradient: "from-red-400 to-pink-500",
-    },
-    {
-      title: "Advanced Positioning",
-      description: "Use Neon's mobility for superior map control and positioning.",
-      difficulty: "Pro",
-      duration: "18 min",
-      comingSoon: true,
-      icon: Award,
-      gradient: "from-purple-400 to-indigo-500",
-    },
-    {
-      title: "Ultimate Usage Mastery",
-      description: "Maximize Overdrive effectiveness in different scenarios.",
-      difficulty: "Pro",
-      duration: "25 min",
-      comingSoon: true,
-      icon: Star,
-      gradient: "from-yellow-400 to-red-500",
     },
   ]
 
@@ -391,8 +357,8 @@ export default function TechniquesPage() {
               {/* Stats Section */}
               <div className="grid grid-cols-3 gap-8 mt-8">
                 {[
-                  { label: "Techniques", value: "9", icon: Target },
-                  { label: "Total Duration", value: "2h+", icon: Clock },
+                  { label: "Techniques", value: "5", icon: Target },
+                  { label: "Total Duration", value: "54m", icon: Clock },
                   { label: "Skill Levels", value: "3", icon: TrendingUp },
                 ].map((stat, index) => (
                   <div key={index} className="text-center group">
@@ -440,7 +406,7 @@ export default function TechniquesPage() {
                     Perfect for players new to Neon or looking to solidify their foundation.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-8 md:grid-cols-2 w-full">
                   {beginnerTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -460,7 +426,7 @@ export default function TechniquesPage() {
                     Take your skills to the next level with complex movement patterns.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-8 md:grid-cols-2 w-full">
                   {advancedTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -480,7 +446,7 @@ export default function TechniquesPage() {
                     Perfect your technique with tournament-level strategies and mechanics.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1 w-full max-w-2xl mx-auto">
                   {proTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
