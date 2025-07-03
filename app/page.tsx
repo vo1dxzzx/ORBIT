@@ -407,45 +407,61 @@ export default function Component() {
                     Fine-tune your sensitivity for precise movement control
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-8">
-                  <div className="space-y-4">
-                    <label className={`text-base font-medium ${isDarkMode ? "text-white" : "text-gray-900"} flex items-center gap-2`}>
-                      <span>DPI: {Math.round(dpi[0] / 100) * 100}</span>
-                      <TrendingUp className="w-4 h-4 text-cyan-400" />
-                    </label>
-                    <Slider
-                      value={[Math.round(dpi[0] / 100) * 100]}
-                      onValueChange={(value) => setDpi([Math.round(value[0] / 100) * 100])}
-                      max={3200}
-                      min={400}
-                      step={100}
-                      className="w-full"
-                    />
-                    <p className="text-sm text-cyan-400 font-medium">Recommended: 800 DPI</p>
-                  </div>
-                  <div className="space-y-4">
-                    <label className={`text-base font-medium ${isDarkMode ? "text-white" : "text-gray-900"} flex items-center gap-2`}>
-                      <span>In-Game Sensitivity: {inGameSens[0].toFixed(2)}</span>
-                      <Award className="w-4 h-4 text-yellow-400" />
-                    </label>
-                    <Slider
-                      value={inGameSens}
-                      onValueChange={setInGameSens}
-                      max={2}
-                      min={0.1}
-                      step={0.01}
-                      className="w-full"
-                    />
-                    <p className="text-sm text-cyan-400 font-medium">Recommended: 0.35-0.45</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-6 text-center">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-400/30">
-                      <p className={`font-medium text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>eDPI</p>
-                      <p className="text-yellow-400 font-mono text-2xl font-bold">{Math.round(dpi[0] * inGameSens[0])}</p>
+                <CardContent className="space-y-10">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <label className={`text-base font-medium ${isDarkMode ? "text-white" : "text-gray-900"} flex items-center gap-2`}>
+                        <span>DPI</span>
+                        <TrendingUp className="w-4 h-4 text-cyan-400" />
+                      </label>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-cyan-400">{Math.round(dpi[0] / 100) * 100}</span>
+                      </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
-                      <p className={`font-medium text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>360° Distance</p>
-                      <p className="text-yellow-400 font-mono text-2xl font-bold">
+                    <div className="px-2">
+                      <Slider
+                        value={[Math.round(dpi[0] / 100) * 100]}
+                        onValueChange={(value) => setDpi([Math.round(value[0] / 100) * 100])}
+                        max={3200}
+                        min={400}
+                        step={100}
+                        className="w-full"
+                      />
+                    </div>
+                    <p className="text-sm text-cyan-400 font-medium text-center">Recommended: 800 DPI</p>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <label className={`text-base font-medium ${isDarkMode ? "text-white" : "text-gray-900"} flex items-center gap-2`}>
+                        <span>In-Game Sensitivity</span>
+                        <Award className="w-4 h-4 text-yellow-400" />
+                      </label>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-yellow-400">{inGameSens[0].toFixed(2)}</span>
+                      </div>
+                    </div>
+                    <div className="px-2">
+                      <Slider
+                        value={inGameSens}
+                        onValueChange={setInGameSens}
+                        max={2}
+                        min={0.1}
+                        step={0.01}
+                        className="w-full"
+                      />
+                    </div>
+                    <p className="text-sm text-cyan-400 font-medium text-center">Recommended: 0.35-0.45</p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-6 pt-4">
+                    <div className="p-6 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-center">
+                      <p className={`font-medium text-lg ${isDarkMode ? "text-white" : "text-gray-900"} mb-2`}>eDPI</p>
+                      <p className="text-yellow-400 font-mono text-3xl font-bold">{Math.round(dpi[0] * inGameSens[0])}</p>
+                    </div>
+                    <div className="p-6 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30 text-center">
+                      <p className={`font-medium text-lg ${isDarkMode ? "text-white" : "text-gray-900"} mb-2`}>360° Distance</p>
+                      <p className="text-yellow-400 font-mono text-3xl font-bold">
                         {((2.54 * 360) / (dpi[0] * inGameSens[0] * 0.0066)).toFixed(1)}cm
                       </p>
                     </div>
