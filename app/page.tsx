@@ -315,7 +315,7 @@ export default function Component() {
                     {
                       icon: "⚡",
                       title: "Lightning-Fast Movement",
-                      desc: "Master slide cancels, wall running, and momentum preservation",
+                      desc: "Master slides, movement, and momentum preservation",
                       color: "cyan"
                     },
                     {
