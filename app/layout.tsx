@@ -8,8 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "ORBIT",
   description:
-    "The ultimate Valorant community dedicated to perfecting Neon movement, advanced techniques, and lightning-fast gameplay.",
-    generator: 'v0.dev'
+    "The ultimate Valorant community dedicated to perfecting Neon movement, advanced techniques, and lightning-fast gameplay."
 }
 
 export default function RootLayout({
