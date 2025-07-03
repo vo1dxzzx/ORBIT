@@ -77,7 +77,7 @@ export default function TechniquesPage() {
       comingSoon: false, // OPEN
       icon: Rocket,
       gradient: "from-green-400 to-emerald-500",
-      youtubeUrl: "https://www.youtube.com/watch?v=cSMug1GN8SM", // You can paste YouTube URL here
+      youtubeUrl: "https://youtu.be/cSMug1GN8SM", // You can paste YouTube URL here
     },
     {
       title: "Sprint Management",
