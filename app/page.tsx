@@ -258,14 +258,10 @@ export default function Component() {
                   size="lg"
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold border-0 hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.6),0_0_40px_rgba(255,255,0,0.2)] transition-all duration-300"
                 >
-                  <a
-                    href="https://www.youtube.com/@ORBIT_Neon/?sub_confirmation=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="/techniques">
                     <Play className="w-4 h-4 mr-2" />
                     Watch Tutorials
-                  </a>
+                  </Link>
                 </Button>
 
                 <Button
