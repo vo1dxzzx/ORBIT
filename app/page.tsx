@@ -556,9 +556,9 @@ export default function Component() {
                 },
                 {
                   name: "pahn",
-                  initials: "NM",
-                  socialLink: "https://guns.lol/newmember",
-                  avatarUrl: "https://i.imgur.com/placeholder.jpeg",
+                  initials: "PA",
+                  socialLink: "https://www.youtube.com/@qahns/?sub_confirmation=1",
+                  avatarUrl: "https://i.imgur.com/5SvLGn9.jpeg",
                 },
               ].map((member, index) => (
                 <Card
