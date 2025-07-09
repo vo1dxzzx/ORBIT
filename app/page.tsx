@@ -555,7 +555,7 @@ export default function Component() {
                   avatarUrl: "https://i.imgur.com/aNQRf1B.jpeg",
                 },
                 {
-                  name: "New Member",
+                  name: "pahn",
                   initials: "NM",
                   socialLink: "https://guns.lol/newmember",
                   avatarUrl: "https://i.imgur.com/placeholder.jpeg",
