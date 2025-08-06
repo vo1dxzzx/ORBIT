@@ -60,8 +60,12 @@ export default function Component() {
     setSubmitMessage("")
 
     try {
-      const webhookUrl =
-        "https://discord.com/api/webhooks/1389628197527617606/qmXqgwphXvGFfrnNgMhNOhMk9qEC86XE6DO6HorhNLVUHz7ocFt8bEEDQafesUOHKmLa"
+      const webhookUrl = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL
+
+      if (!webhookUrl) {
+        setSubmitMessage("❌ Configuration error. Please try again later.")
+        return
+      }
 
       const payload = {
         embeds: [
