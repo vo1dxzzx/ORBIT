@@ -513,12 +513,6 @@ export default function Component() {
                   avatarUrl: "https://i.imgur.com/5CPvY2G.jpeg",
                 },
                 {
-                  name: "Kcr",
-                  initials: "KC",
-                  socialLink: "https://www.youtube.com/@val_kcr/?sub_confirmation=1",
-                  avatarUrl: "https://i.imgur.com/1NIcrOC.jpeg",
-                },
-                {
                   name: "kuniqz",
                   initials: "KU",
                   socialLink: "https://guns.lol/kuniqz",
