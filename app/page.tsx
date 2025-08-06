@@ -507,12 +507,6 @@ export default function Component() {
                   avatarUrl: "https://i.imgur.com/1PpM20V.jpeg",
                 },
                 {
-                  name: "Harley",
-                  initials: "!H",
-                  socialLink: "https://guns.lol/harley.",
-                  avatarUrl: "https://i.imgur.com/5CPvY2G.jpeg",
-                },
-                {
                   name: "kuniqz",
                   initials: "KU",
                   socialLink: "https://guns.lol/kuniqz",
