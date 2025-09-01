@@ -19,12 +19,8 @@ import {
   Gamepad2,
   Clock,
   Star,
-  Sparkles,
   Award,
-  Flame,
-  Trophy,
   Rocket,
-  ChevronRight,
   PlayCircle,
   Lock,
   Unlock,
@@ -44,7 +40,6 @@ export default function TechniquesPage() {
       setActiveTab(tabParam)
     }
 
-    // Scroll to techniques content after a short delay to ensure the page has loaded
     const timer = setTimeout(() => {
       const techniquesSection = document.getElementById("techniques-content")
       if (techniquesSection) {
@@ -62,23 +57,21 @@ export default function TechniquesPage() {
     setIsDarkMode(!isDarkMode)
   }
 
-  // Function to extract YouTube video ID from URL
   const getYouTubeVideoId = (url: string) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
     const match = url.match(regExp)
     return (match && match[2].length === 11) ? match[2] : null
   }
 
-  // Function to get YouTube thumbnail URL
   const getYouTubeThumbnail = (videoId: string) => {
     return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
   }
 
-  const themeClasses = isDarkMode ? "bg-slate-950 text-white" : "bg-gray-50 text-gray-900"
+  const themeClasses = isDarkMode ? "bg-black text-white" : "bg-white text-gray-900"
   const cardClasses = isDarkMode
-    ? "bg-slate-800/60 border-slate-700/50 hover:border-cyan-400/60 backdrop-blur-sm"
-    : "bg-white/90 border-gray-200/50 hover:border-cyan-400/60 backdrop-blur-sm"
-  const headerClasses = isDarkMode ? "border-cyan-500/20 bg-slate-900/80" : "border-cyan-400/30 bg-white/90"
+    ? "bg-gray-900/30 border-gray-800/50 hover:border-gray-700/80"
+    : "bg-white/80 border-gray-200/50 hover:border-gray-300/80"
+  const headerClasses = isDarkMode ? "border-gray-800/50 bg-black/80" : "border-gray-200/50 bg-white/90"
 
   const beginnerTechniques = [
     {
@@ -86,29 +79,26 @@ export default function TechniquesPage() {
       description: "Master Neon's slide ability for speed and positioning advantages.",
       difficulty: "Beginner",
       duration: "15 sec",
-      comingSoon: false, // OPEN
+      comingSoon: false,
       icon: Rocket,
-      gradient: "from-green-400 to-emerald-500",
-      youtubeUrl: "https://youtu.be/cSMug1GN8SM", // You can paste YouTube URL here
+      youtubeUrl: "https://youtu.be/cSMug1GN8SM",
     },
     {
       title: "Sprint Management",
       description: "Efficiently manage Neon's sprint energy for maximum mobility.",
       difficulty: "Beginner",
       duration: "30 sec",
-      comingSoon: false, // OPEN
+      comingSoon: false,
       icon: Zap,
-      gradient: "from-blue-400 to-cyan-500",
-      youtubeUrl: "https://www.youtube.com/watch?v=UX-9K4l2TsU", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=UX-9K4l2TsU",
     },
     {
       title: "Wall Positioning",
       description: "Learn optimal wall placement and timing for maximum effectiveness.",
       difficulty: "Beginner",
       duration: "6 min",
-      comingSoon: true, // COMING SOON
+      comingSoon: true,
       icon: Shield,
-      gradient: "from-purple-400 to-pink-500",
     },
   ]
 
@@ -118,29 +108,26 @@ export default function TechniquesPage() {
       description: "Master slide timing, positioning, and combat applications.",
       difficulty: "Advanced",
       duration: "30 sec",
-      comingSoon: false, // OPEN
-      icon: Flame,
-      gradient: "from-orange-400 to-red-500",
-      youtubeUrl: "https://www.youtube.com/watch?v=5VEc9xuq44Y", // You can paste YouTube URL here
+      comingSoon: false,
+      icon: Target,
+      youtubeUrl: "https://www.youtube.com/watch?v=5VEc9xuq44Y",
     },
     {
       title: "Using Boxes and Ropes",
       description: "Advanced movement using boxes and ropes for maximum map presence.",
       difficulty: "Advanced",
       duration: "30 sec",
-      comingSoon: false, // OPEN
+      comingSoon: false,
       icon: TrendingUp,
-      gradient: "from-yellow-400 to-orange-500",
-      youtubeUrl: "https://www.youtube.com/watch?v=OVT4NFeZULY", // You can paste YouTube URL here
+      youtubeUrl: "https://www.youtube.com/watch?v=OVT4NFeZULY",
     },
     {
       title: "Combo Techniques",
       description: "Chain abilities together for devastating movement combinations.",
       difficulty: "Advanced",
       duration: "15 min",
-      comingSoon: true, // COMING SOON
+      comingSoon: true,
       icon: Crosshair,
-      gradient: "from-cyan-400 to-blue-500",
     },
   ]
 
@@ -150,41 +137,38 @@ export default function TechniquesPage() {
       description: "Seamlessly integrate movement with precise aim and shooting.",
       difficulty: "Pro",
       duration: "20 sec",
-      comingSoon: false, // OPEN
-      icon: Trophy,
-      gradient: "from-red-400 to-pink-500",
-      youtubeUrl: "https://www.youtube.com/watch?v=U26vJSmejJA", // You can paste YouTube URL here
+      comingSoon: false,
+      icon: Award,
+      youtubeUrl: "https://www.youtube.com/watch?v=U26vJSmejJA",
     },
     {
       title: "Map Control Mastery",
       description: "Professional-level map control and positioning strategies.",
       difficulty: "Pro",
       duration: "25 min",
-      comingSoon: true, // COMING SOON
+      comingSoon: true,
       icon: Target,
-      gradient: "from-purple-500 to-indigo-500",
     },
     {
       title: "Tournament Tactics",
       description: "High-level competitive strategies used in professional play.",
       difficulty: "Pro",
       duration: "30 min",
-      comingSoon: true, // COMING SOON
-      icon: Award,
-      gradient: "from-yellow-400 to-orange-500",
+      comingSoon: true,
+      icon: Trophy,
     },
   ]
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Beginner":
-        return "border-green-400/50 text-green-400 bg-green-400/10"
+        return "border-blue-500/50 text-blue-500 bg-blue-500/10"
       case "Advanced":
-        return "border-yellow-400/50 text-yellow-400 bg-yellow-400/10"
+        return "border-yellow-500/50 text-yellow-500 bg-yellow-500/10"
       case "Pro":
-        return "border-red-400/50 text-red-400 bg-red-400/10"
+        return "border-gray-400/50 text-gray-400 bg-gray-400/10"
       default:
-        return "border-cyan-400/50 text-cyan-400 bg-cyan-400/10"
+        return "border-blue-500/50 text-blue-500 bg-blue-500/10"
     }
   }
 
@@ -195,7 +179,7 @@ export default function TechniquesPage() {
       case "Advanced":
         return TrendingUp
       case "Pro":
-        return Trophy
+        return Award
       default:
         return CheckCircle
     }
@@ -214,63 +198,54 @@ export default function TechniquesPage() {
     }
 
     return (
-      <Card
-        className={`${cardClasses} group hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-500 w-full border-2 relative overflow-hidden`}
-        style={{ animationDelay: `${index * 100}ms` }}
-      >
-        {/* Background gradient overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${technique.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
-        
-        <CardHeader className="relative">
+      <Card className={`${cardClasses} group hover:scale-105 transition-all duration-300 w-full border relative overflow-hidden`}>
+        <CardHeader className="relative p-6">
           <div className="flex items-center justify-between mb-4">
-            <Badge variant="outline" className={`${getDifficultyColor(technique.difficulty)} font-medium px-3 py-1`}>
-              <DifficultyIcon className="w-3 h-3 mr-1.5" />
+            <Badge variant="outline" className={`${getDifficultyColor(technique.difficulty)} font-light px-3 py-1 text-xs`}>
+              <DifficultyIcon className="w-3 h-3 mr-1" />
               {technique.difficulty}
             </Badge>
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1 text-xs text-cyan-400 font-medium">
+              <div className={`flex items-center gap-1 text-xs font-light ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
                 <Clock className="w-3 h-3" />
                 {technique.duration}
               </div>
               {technique.comingSoon ? (
-                <Lock className="w-4 h-4 text-orange-400" />
+                <Lock className="w-4 h-4 text-gray-400" />
               ) : (
-                <Unlock className="w-4 h-4 text-green-400" />
+                <Unlock className="w-4 h-4 text-blue-500" />
               )}
             </div>
           </div>
           
           <div className="flex items-start gap-4">
-            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${technique.gradient} bg-opacity-20 flex items-center justify-center group-hover:scale-110 transition-all duration-300 border border-white/10`}>
-              <TechIcon className="w-7 h-7 text-white drop-shadow-lg" />
+            <div className={`w-12 h-12 rounded-lg ${technique.comingSoon ? 'bg-gray-500/10' : 'bg-blue-500/10'} flex items-center justify-center`}>
+              <TechIcon className={`w-6 h-6 ${technique.comingSoon ? 'text-gray-400' : 'text-blue-500'}`} />
             </div>
             <div className="flex-1">
-              <CardTitle className={`text-xl mb-2 ${isDarkMode ? "text-white" : "text-gray-900"} group-hover:text-cyan-400 transition-colors duration-300`}>
+              <CardTitle className={`text-lg mb-2 font-light ${isDarkMode ? "text-white" : "text-gray-900"}`}>
                 {technique.title}
               </CardTitle>
-              <CardDescription className={`text-base leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+              <CardDescription className={`text-sm font-light leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
                 {technique.description}
               </CardDescription>
             </div>
           </div>
         </CardHeader>
         
-        <CardContent className="relative">
-          <div className="aspect-video rounded-xl overflow-hidden bg-slate-900/50 relative flex items-center justify-center w-full border border-slate-700/50 group-hover:border-cyan-400/30 transition-all duration-300">
+        <CardContent className="relative p-6 pt-0">
+          <div className={`aspect-video rounded-lg overflow-hidden ${isDarkMode ? 'bg-gray-900/50' : 'bg-gray-100/50'} relative flex items-center justify-center w-full border ${isDarkMode ? 'border-gray-800/50' : 'border-gray-200/50'}`}>
             {technique.comingSoon ? (
-              <div className="text-center space-y-4">
-                <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-20 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
-                  <Clock className="w-10 h-10 text-cyan-400 drop-shadow-lg" />
-                </div>
+              <div className="text-center space-y-3">
+                <Clock className="w-12 h-12 text-gray-400 mx-auto" />
                 <div>
-                  <p className="text-cyan-400 font-semibold text-lg">Coming Soon</p>
-                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"} mt-1`}>
-                    Video tutorial in production
+                  <p className="text-gray-400 font-light">Coming Soon</p>
+                  <p className={`text-xs font-light ${isDarkMode ? "text-gray-500" : "text-gray-500"} mt-1`}>
+                    In production
                   </p>
                 </div>
               </div>
             ) : thumbnailUrl ? (
-              // YouTube Video Thumbnail with Play Button
               <div 
                 className="relative w-full h-full cursor-pointer group/video"
                 onClick={handleVideoClick}
@@ -280,75 +255,51 @@ export default function TechniquesPage() {
                   alt={technique.title}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {
-                    // Fallback to hqdefault if maxresdefault fails
                     e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
                   }}
                 />
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/30 group-hover/video:bg-black/20 transition-all duration-300 rounded-lg" />
+                <div className="absolute inset-0 bg-black/20 group-hover/video:bg-black/10 transition-all duration-300 rounded-lg" />
                 
-                {/* Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-all duration-300 shadow-lg">
-                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                  <div className="w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center group-hover/video:scale-110 transition-all duration-300 shadow-lg">
+                    <Play className="w-6 h-6 text-gray-900 ml-0.5" fill="currentColor" />
                   </div>
                 </div>
                 
-                {/* YouTube Logo */}
-                <div className="absolute bottom-3 right-3">
-                  <div className="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
-                    YouTube
-                  </div>
-                </div>
-                
-                {/* Duration Badge */}
-                <div className="absolute top-3 right-3">
-                  <div className="bg-black/80 text-white px-2 py-1 rounded text-xs font-medium">
+                <div className="absolute bottom-2 right-2">
+                  <div className="bg-black/80 text-white px-2 py-1 rounded text-xs font-light">
                     {technique.duration}
                   </div>
                 </div>
               </div>
             ) : (
-              // Fallback for videos without valid YouTube URLs
-              <div className="text-center space-y-4">
-                <div className={`w-20 h-20 bg-gradient-to-br ${technique.gradient} bg-opacity-30 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 border-2 border-white/20`}>
-                  <PlayCircle className="w-10 h-10 text-white drop-shadow-lg" />
-                </div>
+              <div className="text-center space-y-3">
+                <PlayCircle className="w-12 h-12 text-blue-500 mx-auto" />
                 <div>
-                  <p className="text-green-400 font-semibold text-lg">Ready for Video</p>
-                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"} mt-1`}>
-                    Paste YouTube URL in code
+                  <p className="text-blue-500 font-light">Ready</p>
+                  <p className={`text-xs font-light ${isDarkMode ? "text-gray-500" : "text-gray-500"} mt-1`}>
+                    Video available
                   </p>
                 </div>
               </div>
             )}
-            
-            {/* Animated background elements - only show for coming soon */}
-            {technique.comingSoon && (
-              <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: "0s" }} />
-                <div className="absolute top-8 right-6 w-1 h-1 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
-                <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
-                <div className="absolute bottom-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
-              </div>
-            )}
           </div>
           
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between">
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               disabled={technique.comingSoon}
               onClick={technique.comingSoon ? undefined : handleVideoClick}
-              className="border-cyan-400/60 text-cyan-400 hover:bg-cyan-400/15 bg-transparent hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed px-6"
+              className={`${technique.comingSoon ? 'text-gray-400' : 'text-blue-500 hover:bg-blue-500/10'} font-light px-4`}
             >
               <PlayCircle className="w-4 h-4 mr-2" />
-              {technique.comingSoon ? "Coming Soon" : "Watch Now"}
+              {technique.comingSoon ? "Coming Soon" : "Watch"}
             </Button>
             
-            <div className="flex items-center gap-2 text-xs text-slate-400">
+            <div className={`flex items-center gap-2 text-xs font-light ${isDarkMode ? "text-gray-500" : "text-gray-500"}`}>
               <Users className="w-3 h-3" />
-              <span>{technique.comingSoon ? "0 views" : "Available"}</span>
+              <span>{technique.comingSoon ? "Pending" : "Available"}</span>
             </div>
           </div>
         </CardContent>
@@ -357,134 +308,109 @@ export default function TechniquesPage() {
   }
 
   return (
-    <div
-      className={`flex flex-col min-h-screen w-full ${themeClasses} relative overflow-hidden transition-all duration-700`}
-    >
-      {/* Enhanced Animated Background */}
+    <div className={`flex flex-col min-h-screen w-full ${themeClasses} relative transition-all duration-500`}>
+      {/* Minimal Background */}
       <div className="fixed inset-0 pointer-events-none w-full h-full">
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/15 to-blue-500/15 rounded-full blur-3xl animate-pulse" 
-             style={{ animationDuration: "4s" }} />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl animate-pulse" 
-             style={{ animationDuration: "6s", animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-purple-400/8 to-pink-500/8 rounded-full blur-3xl animate-pulse" 
-             style={{ animationDuration: "5s", animationDelay: "1s" }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/3 via-transparent to-yellow-500/3" />
+        <div className="absolute top-1/4 right-1/4 w-px h-32 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent" />
+        <div className="absolute bottom-1/3 left-1/3 w-32 h-px bg-gradient-to-r from-transparent via-yellow-500/10 to-transparent" />
       </div>
 
-      {/* Header */}
-      <header
-        className={`w-full px-4 lg:px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-md sticky top-0 z-50 transition-all duration-500`}
-      >
-        <Link href="/" className="flex items-center justify-center gap-3 group">
-          <div className="relative">
-            <img
-              src="/orbit-logo.png"
-              alt="Orbit Logo"
-              className="h-8 w-8 filter drop-shadow-[0_0_12px_rgba(0,255,255,0.8)] group-hover:drop-shadow-[0_0_16px_rgba(0,255,255,1)] transition-all duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
+      {/* Minimal Header */}
+      <header className={`w-full px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-sm sticky top-0 z-50 transition-all duration-300`}>
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-yellow-500 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">O</span>
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-300 group-hover:to-purple-300 transition-all duration-300">
-            Orbit
-          </span>
+          <span className="text-xl font-light tracking-wide">Orbit</span>
         </Link>
-        <nav className="ml-auto flex gap-6 items-center">
+        
+        <nav className="ml-auto flex gap-8 items-center">
           {[
             { href: "/#about", label: "About" },
             { href: "/#team", label: "Team" },
             { href: "/techniques", label: "Guides", active: true },
             { href: "/#settings", label: "Settings" },
             { href: "/#community", label: "Community" },
-            { href: "/#join", label: "Join Us" }
+            { href: "/#join", label: "Join" }
           ].map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-all duration-300 relative group ${
+              className={`text-sm font-light transition-colors duration-300 ${
                 item.active 
-                  ? "text-cyan-400" 
-                  : isDarkMode ? "text-white hover:text-cyan-400" : "text-gray-700 hover:text-cyan-400"
+                  ? "text-blue-500" 
+                  : isDarkMode ? "text-gray-300 hover:text-blue-500" : "text-gray-600 hover:text-blue-500"
               }`}
             >
               {item.label}
-              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 ${
-                item.active ? "w-full" : "w-0 group-hover:w-full"
-              }`} />
             </Link>
           ))}
 
-          {/* Enhanced Theme Toggle */}
           <Button 
             variant="ghost" 
             size="sm" 
             onClick={toggleTheme} 
-            className="p-2 hover:bg-cyan-400/10 rounded-full transition-all duration-300 hover:scale-110"
+            className="p-2 hover:bg-gray-100/10 rounded-lg transition-all duration-300"
           >
             {isDarkMode ? 
-              <Sun className="w-4 h-4 text-yellow-400 drop-shadow-[0_0_8px_rgba(255,255,0,0.6)]" /> : 
-              <Moon className="w-4 h-4 text-slate-600" />
+              <Sun className="w-4 h-4 text-yellow-500" /> : 
+              <Moon className="w-4 h-4 text-gray-600" />
             }
           </Button>
         </nav>
       </header>
 
       <main className="flex-1 relative z-10 w-full">
-        {/* Enhanced Hero Section */}
-        <section className="relative w-full py-20 md:py-32 overflow-hidden">
-          <div
-            className={`absolute inset-0 w-full h-full ${isDarkMode ? "bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-500/10" : "bg-gradient-to-br from-cyan-400/20 via-blue-400/10 to-purple-400/15"}`}
-          />
-          <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_70%)]" />
-
-          <div className="container mx-auto px-4 md:px-6 relative z-10 w-full max-w-7xl">
-            <div className="flex flex-col items-center space-y-8 text-center w-full">
-              <div className="space-y-6 w-full">
+        {/* Minimal Hero Section */}
+        <section className="relative w-full py-24 md:py-32">
+          <div className="container mx-auto px-6 relative z-10 w-full max-w-6xl">
+            <div className="flex flex-col items-center space-y-12 text-center w-full">
+              <div className="space-y-8 w-full">
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-all duration-300 group"
+                  className={`inline-flex items-center gap-2 text-sm font-light hover:text-blue-500 transition-colors duration-300 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
                 >
-                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
+                  <ArrowLeft className="w-4 h-4" />
                   Back to Home
                 </Link>
+                
                 <Badge
                   variant="outline"
-                  className="border-cyan-400/50 text-cyan-300 bg-gradient-to-r from-cyan-400/10 to-yellow-400/5 backdrop-blur-sm px-4 py-2 text-sm font-medium hover:scale-105 transition-all duration-300"
+                  className={`border-gray-300/50 ${isDarkMode ? "text-gray-400 bg-gray-900/30" : "text-gray-600 bg-gray-100/50"} backdrop-blur-sm px-4 py-2 text-sm font-light`}
                 >
-                  <Sparkles className="w-3 h-3 mr-2" />
                   Master the Techniques
-                  <ChevronRight className="w-3 h-3 ml-2" />
                 </Badge>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-yellow-300 bg-clip-text text-transparent animate-pulse" style={{ animationDuration: "3s" }}>
-                    Neon Mastery
+                
+                <h1 className="text-5xl md:text-7xl font-extralight tracking-tight leading-none">
+                  <span className="bg-gradient-to-r from-blue-500 to-yellow-500 bg-clip-text text-transparent">
+                    Neon
                   </span>
                   <br />
-                  <span className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
-                    Guide
+                  <span className={isDarkMode ? "text-white" : "text-gray-900"}>
+                    Mastery
                   </span>
                 </h1>
-                <p
-                  className={`mx-auto max-w-[700px] text-lg md:text-xl leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}
-                >
-                  Master Neon's abilities, movement, and positioning with our comprehensive video guides.
+                
+                <p className={`mx-auto max-w-2xl text-lg font-light leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                  Master Neon's abilities and movement with our comprehensive guides.
                   <br />
-                  <span className="text-cyan-400 font-semibold">From beginner basics to pro-level techniques.</span>
+                  <span className="text-blue-500">From beginner basics to professional techniques.</span>
                 </p>
               </div>
               
-              {/* Stats Section */}
-              <div className="grid grid-cols-3 gap-8 mt-8">
+              <div className="grid grid-cols-3 gap-8">
                 {[
                   { label: "Techniques", value: "9", icon: Target },
-                  { label: "Available Now", value: "5", icon: Unlock },
-                  { label: "Skill Levels", value: "3", icon: TrendingUp },
+                  { label: "Available", value: "5", icon: Unlock },
+                  { label: "Levels", value: "3", icon: TrendingUp },
                 ].map((stat, index) => (
-                  <div key={index} className="text-center group">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-all duration-300 border border-cyan-400/30">
-                      <stat.icon className="w-6 h-6 text-cyan-400" />
+                  <div key={index} className="text-center">
+                    <div className={`w-10 h-10 ${isDarkMode ? 'bg-gray-900/50' : 'bg-gray-100/50'} rounded-lg flex items-center justify-center mx-auto mb-2 border ${isDarkMode ? 'border-gray-800/50' : 'border-gray-200/50'}`}>
+                      <stat.icon className="w-5 h-5 text-blue-500" />
                     </div>
-                    <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>
-                    <div className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>{stat.label}</div>
+                    <div className="text-xl font-light text-blue-500">{stat.value}</div>
+                    <div className={`text-xs font-light ${isDarkMode ? "text-gray-500" : "text-gray-500"}`}>{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -492,39 +418,35 @@ export default function TechniquesPage() {
           </div>
         </section>
 
-        {/* Enhanced Techniques Content */}
-        <section id="techniques-content" className="w-full py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6 w-full max-w-7xl">
+        {/* Minimal Techniques Content */}
+        <section id="techniques-content" className="w-full py-16">
+          <div className="container mx-auto px-6 w-full max-w-6xl">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className={`grid w-full grid-cols-3 mb-12 h-14 ${isDarkMode ? "bg-slate-800/50" : "bg-gray-100"} rounded-2xl p-2`}>
-                <TabsTrigger value="beginner" className="flex items-center gap-3 text-base font-medium rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-emerald-500 data-[state=active]:text-white transition-all duration-300">
-                  <BookOpen className="w-5 h-5" />
+              <TabsList className={`grid w-full grid-cols-3 mb-12 h-12 ${isDarkMode ? "bg-gray-900/30" : "bg-gray-100/50"} rounded-lg p-1 border ${isDarkMode ? 'border-gray-800/50' : 'border-gray-200/50'}`}>
+                <TabsTrigger value="beginner" className="flex items-center gap-2 text-sm font-light rounded-md data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300">
+                  <BookOpen className="w-4 h-4" />
                   <span className="hidden sm:inline">Beginner</span>
                 </TabsTrigger>
-                <TabsTrigger value="advanced" className="flex items-center gap-3 text-base font-medium rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-500 data-[state=active]:to-orange-500 data-[state=active]:text-white transition-all duration-300">
-                  <Zap className="w-5 h-5" />
+                <TabsTrigger value="advanced" className="flex items-center gap-2 text-sm font-light rounded-md data-[state=active]:bg-yellow-500 data-[state=active]:text-white transition-all duration-300">
+                  <Zap className="w-4 h-4" />
                   <span className="hidden sm:inline">Advanced</span>
                 </TabsTrigger>
-                <TabsTrigger value="pro" className="flex items-center gap-3 text-base font-medium rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300">
-                  <Trophy className="w-5 h-5" />
-                  <span className="hidden sm:inline">Pro Level</span>
+                <TabsTrigger value="pro" className="flex items-center gap-2 text-sm font-light rounded-md data-[state=active]:bg-gray-600 data-[state=active]:text-white transition-all duration-300">
+                  <Award className="w-4 h-4" />
+                  <span className="hidden sm:inline">Professional</span>
                 </TabsTrigger>
               </TabsList>
 
               <TabsContent value="beginner" className="space-y-8 w-full">
                 <div className="text-center space-y-4 mb-12 w-full">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center">
-                      <BookOpen className="w-6 h-6 text-white" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tighter">Beginner Fundamentals</h2>
-                  </div>
-                  <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
-                    Learn the core mechanics of Neon's abilities and basic gameplay fundamentals.
-                    Perfect for players new to Neon or looking to solidify their foundation.
+                  <h2 className="text-3xl font-extralight tracking-tight">
+                    Beginner <span className="text-blue-500">Fundamentals</span>
+                  </h2>
+                  <p className={`mx-auto max-w-2xl text-base font-light ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    Learn core mechanics and basic gameplay fundamentals.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {beginnerTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -533,18 +455,14 @@ export default function TechniquesPage() {
 
               <TabsContent value="advanced" className="space-y-8 w-full">
                 <div className="text-center space-y-4 mb-12 w-full">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tighter">Advanced Techniques</h2>
-                  </div>
-                  <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
-                    Refine your Neon gameplay with advanced ability usage and positioning strategies.
-                    Take your skills to the next level with complex movement patterns.
+                  <h2 className="text-3xl font-extralight tracking-tight">
+                    Advanced <span className="text-yellow-500">Techniques</span>
+                  </h2>
+                  <p className={`mx-auto max-w-2xl text-base font-light ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    Refine your gameplay with advanced positioning strategies.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {advancedTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -553,18 +471,14 @@ export default function TechniquesPage() {
 
               <TabsContent value="pro" className="space-y-8 w-full">
                 <div className="text-center space-y-4 mb-12 w-full">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center">
-                      <Trophy className="w-6 h-6 text-white" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tighter">Pro Level Mastery</h2>
-                  </div>
-                  <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
-                    Master the highest level of Neon gameplay used by professional players.
-                    Perfect your technique with tournament-level strategies and mechanics.
+                  <h2 className="text-3xl font-extralight tracking-tight">
+                    Professional <span className="text-gray-400">Mastery</span>
+                  </h2>
+                  <p className={`mx-auto max-w-2xl text-base font-light ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    Master the highest level of gameplay used by professionals.
                   </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
                   {proTechniques.map((technique, index) => (
                     <TechniqueCard key={index} technique={technique} index={index} />
                   ))}
@@ -574,65 +488,57 @@ export default function TechniquesPage() {
           </div>
         </section>
 
-        {/* Enhanced Practice Tips Section */}
-        <section
-          className={`w-full py-16 md:py-24 ${isDarkMode ? "bg-slate-900/30" : "bg-gray-100/50"} transition-colors duration-500 backdrop-blur-sm`}
-        >
-          <div className="container mx-auto px-4 md:px-6 w-full max-w-7xl">
-            <div className="text-center space-y-6 mb-16 w-full">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter">Practice Tips</h2>
-              </div>
-              <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
-                Essential tips to accelerate your learning and master Neon gameplay faster.
-                Follow these guidelines to maximize your practice sessions.
+        {/* Minimal Practice Tips */}
+        <section className={`w-full py-16 ${isDarkMode ? "bg-gray-950/50" : "bg-gray-50/50"} transition-colors duration-500`}>
+          <div className="container mx-auto px-6 w-full max-w-6xl">
+            <div className="text-center space-y-6 mb-12 w-full">
+              <h2 className="text-3xl font-extralight tracking-tight">
+                Practice <span className="text-blue-500">Tips</span>
+              </h2>
+              <p className={`mx-auto max-w-2xl text-base font-light ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                Essential guidelines to accelerate your learning.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 w-full">
+            
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 w-full">
               {[
                 {
                   icon: Gamepad2,
-                  title: "Use Practice Range",
-                  desc: "Start every session in the practice range to warm up your movement and aim.",
-                  gradient: "from-green-400 to-emerald-500",
+                  title: "Practice Range",
+                  desc: "Warm up movement and aim daily",
                 },
                 {
                   icon: Play,
-                  title: "Watch Replays",
-                  desc: "Study your gameplay to identify positioning mistakes and improvement opportunities.",
-                  gradient: "from-blue-400 to-cyan-500",
+                  title: "Study Replays",
+                  desc: "Analyze positioning and mistakes",
                 },
                 {
                   icon: Users,
-                  title: "Practice with Friends",
-                  desc: "Use custom games with friends to practice ability usage in realistic scenarios.",
-                  gradient: "from-purple-400 to-pink-500",
+                  title: "Team Practice",
+                  desc: "Practice with friends in customs",
                 },
                 {
                   icon: Target,
-                  title: "Set Daily Goals",
-                  desc: "Focus on mastering one technique at a time with specific daily practice goals.",
-                  gradient: "from-yellow-400 to-orange-500",
+                  title: "Set Goals",
+                  desc: "Focus on one technique at a time",
                 },
               ].map((tip, index) => (
                 <Card
                   key={index}
-                  className={`${cardClasses} text-center hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all duration-500 w-full group border-2 relative overflow-hidden`}
+                  className={`${cardClasses} text-center hover:scale-105 transition-all duration-300 w-full border`}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${tip.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
-                  <CardHeader className="relative">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tip.gradient} bg-opacity-20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 border border-white/10`}>
-                      <tip.icon className="w-8 h-8 text-white drop-shadow-lg" />
+                  <CardHeader className="p-6">
+                    <div className={`w-12 h-12 rounded-lg ${isDarkMode ? 'bg-gray-900/50' : 'bg-gray-100/50'} flex items-center justify-center mx-auto mb-4 border ${isDarkMode ? 'border-gray-800/50' : 'border-gray-200/50'}`}>
+                      <tip.icon className="w-6 h-6 text-blue-500" />
                     </div>
-                    <CardTitle className={`text-xl ${isDarkMode ? "text-white" : "text-gray-900"} group-hover:text-cyan-400 transition-colors duration-300`}>
+                    <CardTitle className={`text-lg font-light ${isDarkMode ? "text-white" : "text-gray-900"}`}>
                       {tip.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="relative">
-                    <p className={`text-sm leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>{tip.desc}</p>
+                  <CardContent className="p-6 pt-0">
+                    <p className={`text-sm font-light leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                      {tip.desc}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
