@@ -22,7 +22,6 @@ import {
 import Link from "next/link"
 
 export default function TechniquesPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
   const searchParams = useSearchParams()
   const tabParam = searchParams.get("tab")
   const [activeTab, setActiveTab] = useState(tabParam || "beginner")
@@ -46,15 +45,9 @@ export default function TechniquesPage() {
     return () => clearTimeout(timer)
   }, [tabParam])
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
-
-  const themeClasses = isDarkMode ? "bg-slate-950 text-white" : "bg-gray-50 text-gray-900"
-  const cardClasses = isDarkMode
-    ? "bg-slate-800/50 border-slate-700 hover:border-cyan-500/50"
-    : "bg-white/80 border-gray-200 hover:border-cyan-400/50"
-  const headerClasses = isDarkMode ? "border-cyan-500/20 bg-slate-900/50" : "border-cyan-400/30 bg-white/80"
+  const themeClasses = "bg-slate-950 text-white"
+  const cardClasses = "bg-slate-800/50 border-slate-700 hover:border-cyan-500/50"
+  const headerClasses = "border-cyan-500/20 bg-slate-900/50"
 
   const beginnerTechniques = [
     {
@@ -121,11 +114,11 @@ export default function TechniquesPage() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full ${themeClasses} relative overflow-hidden transition-colors duration-500`}
+      className={`flex flex-col min-h-screen w-full ${themeClasses} relative overflow-hidden transition-colors duration-300`}
     >
       {/* Header */}
       <header
-        className={`w-full px-4 lg:px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-sm sticky top-0 z-50 transition-colors duration-500`}
+        className={`w-full px-4 lg:px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-sm sticky top-0 z-50 transition-colors duration-300`}
       >
         <Link href="/" className="flex items-center justify-center gap-2">
           <div className="relative">
@@ -142,13 +135,13 @@ export default function TechniquesPage() {
         <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
           <Link
             href="/#about"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             About
           </Link>
           <Link
             href="/#team"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Team
           </Link>
@@ -157,27 +150,23 @@ export default function TechniquesPage() {
           </Link>
           <Link
             href="/#settings"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Settings
           </Link>
           <Link
             href="/#community"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Community
           </Link>
           <Link
             href="/#join"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Join Us
           </Link>
 
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="sm" onClick={toggleTheme} className="p-2 hover:bg-cyan-400/10">
-            {isDarkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
-          </Button>
         </nav>
       </header>
 
@@ -185,7 +174,7 @@ export default function TechniquesPage() {
         {/* Hero Section */}
         <section className="relative w-full py-20 md:py-32 overflow-hidden">
           <div
-            className={`absolute inset-0 w-full h-full ${isDarkMode ? "bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-500/10" : "bg-gradient-to-br from-cyan-400/20 via-blue-400/10 to-purple-400/15"}`}
+            className={`absolute inset-0 w-full h-full bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-purple-500/10`}
           />
           <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_70%)]" />
 
@@ -212,7 +201,7 @@ export default function TechniquesPage() {
                   </span>
                 </h1>
                 <p
-                  className={`mx-auto max-w-[700px] text-lg md:text-xl ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}
+                  className={`mx-auto max-w-[700px] text-lg md:text-xl text-slate-300`}
                 >
                   Master Neon's abilities, movement, and positioning with our comprehensive video guides.
                 </p>
@@ -292,7 +281,7 @@ export default function TechniquesPage() {
               <TabsContent value="advanced" className="space-y-8 w-full">
                 <div className="text-center space-y-4 mb-12 w-full">
                   <h2 className="text-3xl font-bold tracking-tighter">Advanced Techniques</h2>
-                  <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                  <p className={`mx-auto max-w-[600px] text-lg text-slate-300`}>
                     Refine your Neon gameplay with advanced ability usage and positioning strategies.
                   </p>
                 </div>
@@ -300,7 +289,7 @@ export default function TechniquesPage() {
                   {advancedTechniques.map((technique, index) => (
                     <Card
                       key={index}
-                      className={`${cardClasses} hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 opacity-75 w-full`}
+                      className={`${cardClasses} hover:scale-102 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 opacity-75 w-full`}
                     >
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
@@ -392,12 +381,12 @@ export default function TechniquesPage() {
 
         {/* Practice Tips Section */}
         <section
-          className={`w-full py-16 md:py-24 ${isDarkMode ? "bg-slate-900/30" : "bg-gray-100/50"} transition-colors duration-500`}
+          className={`w-full py-16 md:py-24 bg-slate-900/30 transition-colors duration-300`}
         >
           <div className="container mx-auto px-4 md:px-6 w-full max-w-7xl">
             <div className="text-center space-y-4 mb-12 w-full">
               <h2 className="text-3xl font-bold tracking-tighter">Practice Tips</h2>
-              <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+              <p className={`mx-auto max-w-[600px] text-lg text-slate-300`}>
                 Essential tips to accelerate your learning and master Neon gameplay faster.
               </p>
             </div>
@@ -426,18 +415,18 @@ export default function TechniquesPage() {
               ].map((tip, index) => (
                 <Card
                   key={index}
-                  className={`${cardClasses} text-center hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 w-full`}
+                  className={`${cardClasses} text-center hover:scale-102 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 w-full`}
                 >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-yellow-400/20 flex items-center justify-center mx-auto mb-2">
                       <tip.icon className="w-6 h-6 text-cyan-400" />
                     </div>
-                    <CardTitle className={`text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                    <CardTitle className={`text-lg text-white`}>
                       {tip.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className={`text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>{tip.desc}</p>
+                    <p className={`text-sm text-slate-300`}>{tip.desc}</p>
                   </CardContent>
                 </Card>
               ))}
