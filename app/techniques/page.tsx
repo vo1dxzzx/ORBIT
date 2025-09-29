@@ -5,20 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  Zap,
-  Users,
-  Play,
-  BookOpen,
-  Target,
-  ArrowLeft,
-  Sun,
-  Moon,
-  CheckCircle,
-  TrendingUp,
-  Gamepad2,
-  Clock,
-} from "lucide-react"
+import { Zap, Users, Play, BookOpen, Target, ArrowLeft, Sun, Moon, CircleCheck as CheckCircle, TrendingUp, Gamepad2, Clock } from "lucide-react"
 import Link from "next/link"
 
 export default function TechniquesPage() {
@@ -281,7 +268,7 @@ export default function TechniquesPage() {
               <TabsContent value="advanced" className="space-y-8 w-full">
                 <div className="text-center space-y-4 mb-12 w-full">
                   <h2 className="text-3xl font-bold tracking-tighter">Advanced Techniques</h2>
-                  <p className={`mx-auto max-w-[600px] text-lg text-slate-300`}>
+                  <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
                     Refine your Neon gameplay with advanced ability usage and positioning strategies.
                   </p>
                 </div>
@@ -289,7 +276,7 @@ export default function TechniquesPage() {
                   {advancedTechniques.map((technique, index) => (
                     <Card
                       key={index}
-                      className={`${cardClasses} hover:scale-102 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 opacity-75 w-full`}
+                      className={`${cardClasses} hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 opacity-75 w-full`}
                     >
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
@@ -381,12 +368,12 @@ export default function TechniquesPage() {
 
         {/* Practice Tips Section */}
         <section
-          className={`w-full py-16 md:py-24 bg-slate-900/30 transition-colors duration-300`}
+          className={`w-full py-16 md:py-24 ${isDarkMode ? "bg-slate-900/30" : "bg-gray-100/50"} transition-colors duration-500`}
         >
           <div className="container mx-auto px-4 md:px-6 w-full max-w-7xl">
             <div className="text-center space-y-4 mb-12 w-full">
               <h2 className="text-3xl font-bold tracking-tighter">Practice Tips</h2>
-              <p className={`mx-auto max-w-[600px] text-lg text-slate-300`}>
+              <p className={`mx-auto max-w-[600px] text-lg ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
                 Essential tips to accelerate your learning and master Neon gameplay faster.
               </p>
             </div>
@@ -415,18 +402,18 @@ export default function TechniquesPage() {
               ].map((tip, index) => (
                 <Card
                   key={index}
-                  className={`${cardClasses} text-center hover:scale-102 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 w-full`}
+                  className={`${cardClasses} text-center hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 w-full`}
                 >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-yellow-400/20 flex items-center justify-center mx-auto mb-2">
                       <tip.icon className="w-6 h-6 text-cyan-400" />
                     </div>
-                    <CardTitle className={`text-lg text-white`}>
+                    <CardTitle className={`text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>
                       {tip.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className={`text-sm text-slate-300`}>{tip.desc}</p>
+                    <p className={`text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>{tip.desc}</p>
                   </CardContent>
                 </Card>
               ))}
