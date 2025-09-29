@@ -5,24 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  Zap,
-  Users,
-  Play,
-  BookOpen,
-  Target,
-  ArrowLeft,
-  Sun,
-  Moon,
-  CheckCircle,
-  TrendingUp,
-  Gamepad2,
-  Clock,
-} from "lucide-react"
+import { Zap, Users, Play, BookOpen, Target, ArrowLeft, Sun, Moon, CircleCheck as CheckCircle, TrendingUp, Gamepad2, Clock } from "lucide-react"
 import Link from "next/link"
 
 export default function TechniquesPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
   const searchParams = useSearchParams()
   const tabParam = searchParams.get("tab")
   const [activeTab, setActiveTab] = useState(tabParam || "beginner")
@@ -46,15 +32,9 @@ export default function TechniquesPage() {
     return () => clearTimeout(timer)
   }, [tabParam])
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
-
-  const themeClasses = isDarkMode ? "bg-slate-950 text-white" : "bg-gray-50 text-gray-900"
-  const cardClasses = isDarkMode
-    ? "bg-slate-800/50 border-slate-700 hover:border-cyan-500/50"
-    : "bg-white/80 border-gray-200 hover:border-cyan-400/50"
-  const headerClasses = isDarkMode ? "border-cyan-500/20 bg-slate-900/50" : "border-cyan-400/30 bg-white/80"
+  const themeClasses = "bg-slate-950 text-white"
+  const cardClasses = "bg-slate-800/50 border-slate-700 hover:border-cyan-500/50"
+  const headerClasses = "border-cyan-500/20 bg-slate-900/50"
 
   const beginnerTechniques = [
     {
@@ -121,11 +101,11 @@ export default function TechniquesPage() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full ${themeClasses} relative overflow-hidden transition-colors duration-500`}
+      className={`flex flex-col min-h-screen w-full ${themeClasses} relative overflow-hidden transition-colors duration-300`}
     >
       {/* Header */}
       <header
-        className={`w-full px-4 lg:px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-sm sticky top-0 z-50 transition-colors duration-500`}
+        className={`w-full px-4 lg:px-6 h-16 flex items-center border-b ${headerClasses} backdrop-blur-sm sticky top-0 z-50 transition-colors duration-300`}
       >
         <Link href="/" className="flex items-center justify-center gap-2">
           <div className="relative">
@@ -142,13 +122,13 @@ export default function TechniquesPage() {
         <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
           <Link
             href="/#about"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             About
           </Link>
           <Link
             href="/#team"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Team
           </Link>
@@ -157,27 +137,23 @@ export default function TechniquesPage() {
           </Link>
           <Link
             href="/#settings"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Settings
           </Link>
           <Link
             href="/#community"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Community
           </Link>
           <Link
             href="/#join"
-            className={`text-sm font-medium hover:text-cyan-400 transition-colors ${isDarkMode ? "text-white" : "text-gray-700"}`}
+            className={`text-sm font-medium hover:text-cyan-400 transition-colors text-white`}
           >
             Join Us
           </Link>
 
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="sm" onClick={toggleTheme} className="p-2 hover:bg-cyan-400/10">
-            {isDarkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
-          </Button>
         </nav>
       </header>
 
